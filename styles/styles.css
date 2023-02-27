@@ -1,0 +1,99 @@
+/* Body styles */
+
+
+
+
+
+/* Header & nav styles */
+
+header{
+    background-color: #3F52E3;
+}
+
+.navbar a{
+    color: #F6F6F6;
+}
+
+.navbar a:hover{
+    color: #F6F6F6;
+    text-decoration: 2px solid underline;
+    text-underline-position: under;
+}
+
+.nav-link.active {
+    color: #F6F6F6 !important;
+    text-decoration: 2px solid underline;
+    text-underline-position: under;
+}
+
+.navbar-brand:hover{
+    text-decoration: none !important;
+}
+
+/* Listings */
+
+.listing-img{
+    width: 300px;
+    height: 300px;
+    object-fit: cover;
+}
+
+.listings{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    row-gap: 35px;
+}
+
+/* Messages */
+
+.message {
+    width: 600px;
+    padding: 1rem;
+    border: 1px solid grey;
+    color: grey;
+}
+
+.error {
+    margin-top: 10px;
+    border-color: red;
+    color: white;
+    background: red;
+}
+
+.success {
+    margin-top: 10px;
+    border-color: green;
+    color: white;
+    background: green;
+}
+
+  
+  .message-error {
+    border-color: red;
+    color: white;
+    background: red;
+    width: 600px;
+    padding: 10px;
+    margin: 5px 0 15px 0;
+    display: none;
+  }
+  
+  .message-success {
+    border-color: green;
+    color: white;
+    background: green;
+    width: 600px;
+    padding: 10px;
+    margin: 5px 0 15px 0;
+    display: none;
+  }
+
+
+
+  /* Forms styles */
+
+  form input{
+    width: 600px;
+    margin-bottom: 15px;
+  }
+  
