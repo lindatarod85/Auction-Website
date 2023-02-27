@@ -1,9 +1,9 @@
 import { baseURL } from "./settings/api.js";
 import { options } from "./settings/auth.js";
 import displayMessage from "./components/displayMessage.js";
-//import createMenu from "./components/createMenu.js";
+import createMenu from "./components/createMenu.js";
 
-//createMenu();
+createMenu();
 
 try{
   const response = await fetch(`${baseURL}api/v1/auction/listings`, options)

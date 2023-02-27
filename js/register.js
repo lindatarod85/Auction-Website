@@ -3,6 +3,9 @@ import { containsSpecialChars } from "./components/formFunctions.js";
 import { checkLength } from "./components/formFunctions.js";
 import { validateEmail } from "./components/formFunctions.js";
 import displayMessage from "./components/displayMessage.js";
+import createMenu from "./components/createMenu.js";
+
+createMenu();
 
 const form = document.querySelector("form");
 const username = document.querySelector("#username");

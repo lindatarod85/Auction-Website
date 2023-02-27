@@ -12,6 +12,7 @@ header{
 
 .navbar a{
     color: #F6F6F6;
+    text-decoration: none;
 }
 
 .navbar a:hover{
@@ -20,7 +21,7 @@ header{
     text-underline-position: under;
 }
 
-.nav-link.active {
+a.active {
     color: #F6F6F6 !important;
     text-decoration: 2px solid underline;
     text-underline-position: under;
@@ -28,6 +29,10 @@ header{
 
 .navbar-brand:hover{
     text-decoration: none !important;
+}
+
+.navbar-nav li{
+    margin-left: 10px;
 }
 
 /* Listings */
