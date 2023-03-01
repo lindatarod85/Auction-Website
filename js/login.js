@@ -1,7 +1,7 @@
 import { baseURL } from "./settings/api.js";
 import { checkLength, validateEmail } from "./components/formFunctions.js";
 import displayMessage from "./components/displayMessage.js";
-import { saveToken, saveUser } from "./utils/storage.js";
+import { saveToken, saveUser, saveAvatar, saveCredits } from "./utils/storage.js";
 import createMenu from "./components/createMenu.js";
 
 
@@ -55,6 +55,8 @@ async function doLogin(email, password) {
         if (json.name) {
             saveToken(json.accessToken);
             saveUser(json.name); 
+            saveAvatar(json.avatar);
+            saveCredits(json.credits);
 
            displayMessage("success", "You are successfully logged in", ".message-container");          
            

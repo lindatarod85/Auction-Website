@@ -1,7 +1,7 @@
 import { baseURL } from "./settings/api.js";
 import { options } from "./settings/auth.js";
 import displayMessage from "./components/displayMessage.js";
-import {getToken, getUsername} from "./utils/storage.js";
+import {getToken} from "./utils/storage.js";
 import createMenu from "./components/createMenu.js";
 
 createMenu();

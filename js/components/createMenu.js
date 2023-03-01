@@ -40,8 +40,6 @@ export default function createMenu() {
     document.location.href = "/profile.html";
   }*/
 
-  console.log(token);
-
   menuContainer.innerHTML = `
 
 ${authLink}

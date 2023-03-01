@@ -1,5 +1,7 @@
 const tokenKey = "token";
 const userKey = "user";
+const avatarKey = "avatar";
+const creditKey = "credits";
 
 export function saveToken(token) {
   saveToStorage(tokenKey, token);
@@ -14,17 +16,27 @@ export function saveUser(user) {
 }
 
 export function getUsername() {
-  const user = getFromStorage(userKey);
+  return getFromStorage(userKey);
+}
 
-  if (user) {
-    return user.username;
-  }
+export function saveAvatar(avatar){
+  saveToStorage(avatarKey, avatar)
+}
 
-  return null;
+export function getAvatar(){
+  return getFromStorage(avatarKey);
 }
 
 export function clearStorage() {
   localStorage.clear();
+}
+
+export function saveCredits(credits){
+  saveToStorage(creditKey, credits);
+}
+
+export function getCredits(){
+  return getFromStorage(creditKey);
 }
 
 function saveToStorage(key, value) {
