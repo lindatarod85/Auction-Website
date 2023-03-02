@@ -1,3 +1,4 @@
+import makeApiCall from "./utils/makeApiCall.js";
 import { baseURL } from "./settings/api.js";
 import { options } from "./settings/auth.js";
 import displayMessage from "./components/displayMessage.js";
@@ -5,38 +6,37 @@ import createMenu from "./components/createMenu.js";
 
 createMenu();
 
-try{
-  const response = await fetch(`${baseURL}api/v1/auction/listings`, options)
-  const data = await response.json();
+const listingsContainer = document.querySelector(".listings");
 
-  console.log(data);
+//Get Listings
+async function getListings(){
 
-  const listingsContainer = document.querySelector(".listings");
+  const url = baseURL + "api/v1/auction/listings";
+  const {data, error} = await makeApiCall(url, options);
 
+  if(error){
+    displayMessage("error", "An error occured", ".message-container");
+}
+    displayListings(data);
+}
+getListings();
+
+//Display Listings
 function displayListings(data){
-
-    data.forEach (function (listing){
-        listingsContainer.innerHTML += `
-        <a href="listing.html?listingID=${listing.id}">
-        <div class="card" style="width: 18rem;">
-        <img src="${listing.media[0]}" class="card-img-top listing-img" alt="product image">
-        <div class="card-body">
-          <h5 class="card-title">${listing.title}</h5>
-          <p class="card-text">${listing.description}</p>
-        </div>
-        </div>
-        </a>`
-        });
-
+  data.forEach (function (listing){
+    listingsContainer.innerHTML += `
+    <a href="listing.html?listingID=${listing.id}">
+    <div class="card" style="width: 18rem;">
+    <img src="${listing.media[0]}" class="card-img-top listing-img" alt="product image">
+    <div class="card-body">
+      <h5 class="card-title">${listing.title}</h5>
+      <p class="card-text">${listing.description}</p>
+    </div>
+    </div>
+    </a>`
+    });
 }
 
-displayListings(data);
-
-
-}catch(error){
-  displayMessage("error", "An error occured", ".message-container");
-}
- 
 
 
 

@@ -1,3 +1,4 @@
+import makeApiCall from "./utils/makeApiCall.js";
 import { baseURL } from "./settings/api.js";
 import { options } from "./settings/auth.js";
 import displayMessage from "./components/displayMessage.js";
@@ -8,59 +9,47 @@ createMenu();
 
 const detailContainer = document.querySelector(".listing-details");
 const mediaGallery = document.querySelector(".media-gallery")
-
 const queryString = document.location.search;
-
 const params = new URLSearchParams(queryString);
-
 const listingID = params.get("listingID");
-
 const url = baseURL + "api/v1/auction/listings/" + listingID;
 
+// Get Listing
+async function getListing(){
+     const {data, error} = await makeApiCall(url, options);
 
-try{
+    if(error){
+        displayMessage("error", "An error occured", ".message-container");
+    }
+        displayListing(data);
+        console.log(data);
+    }
+    getListing();
 
-    const response = await fetch(url, options)
-const details = await response.json();
+    //Display Listing
+    function displayListing(data){
+        detailContainer.innerHTML += `
+        <h1>${data.title}</h1>
+        <img src="${data.media[0]}" />
+        Description: ${data.description}
+        <p>Ends At: ${data.endsAt}</p>
+        `
 
-console.log(details);
+    //Gallery
+    data.media.forEach(function(media){
+        mediaGallery.innerHTML += `
+        <img src="${media}" />
+        `
+        });
+        // Only for logged in users
+        const tokenKey = getToken();
+        if(tokenKey){
+              detailContainer.innerHTML +=`<div class="bid-container">
+         <p class="view-bids">Bids: ${data._count.bids}</p>
+         </div>`
+     };
+    }
 
-
-
-function displayListing(){
-
-    detailContainer.innerHTML += `
-    <h1>${details.title}</h1>
-    <img src="${details.media[0]}" />
-    Description: ${details.description}
-    <p>Ends At: ${details.endsAt}</p>
-    `
-}
-displayListing();
-
-// Only for logged in users
-
-function restrictedContent(){
-    const tokenKey = getToken();
-   if(tokenKey){
-         detailContainer.innerHTML +=`<div class="bid-container">
-    <p class="view-bids">Bids: ${details._count.bids}</p>
-    </div>`
-}
-}
-restrictedContent();
-
-//Gallery
-details.media.forEach(function(media){
-mediaGallery.innerHTML += `
-<img src="${media}" />
-`
-});
-
-
-}catch(error){
-    displayMessage("error", "An error occured", ".message-container");
-}
 
 
 
