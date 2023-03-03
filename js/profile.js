@@ -21,6 +21,7 @@ async function getProfile(){
         displayMessage("error", "An error occured", ".message-container");
     }
         displayProfile(data);
+        console.log(data);
 }
 getProfile();
 
