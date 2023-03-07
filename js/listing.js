@@ -18,6 +18,8 @@ const url = baseURL + "api/v1/auction/listings/" + listingID;
 async function getListing(){
      const {data, error} = await makeApiCall(url, options);
 
+     document.title = "Auction Website | " + data.title;
+
     if(error){
         displayMessage("error", "An error occured", ".message-container");
     }
@@ -49,6 +51,9 @@ async function getListing(){
          </div>`
      };
     }
+
+   
+    
 
 
 

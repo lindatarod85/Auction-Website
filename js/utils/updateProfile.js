@@ -2,6 +2,9 @@ import { baseURL } from "../settings/api.js";
 import { myAuth} from "../settings/auth.js";
 import displayMessage from "../components/displayMessage.js";
 import {getUsername} from "../utils/storage.js";
+import createMenu from "../components/createMenu.js";
+
+createMenu();
 
 const form = document.querySelector("form");
 const profilePicture  = document.querySelector("#avatar");

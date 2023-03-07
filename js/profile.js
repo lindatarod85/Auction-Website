@@ -33,8 +33,8 @@ profileHeader.innerHTML += `
 <h1>Hello ${data.name}</h1>
 </div>
 <div class="profile-menu">
-<a href="#">Update Profile</a>
-<a href="#">Add Listing</a>
+<a href="/updateProfile.html">Update Profile</a>
+<a href="/addListing.html">Add Listing</a>
 <div>My Credits: ${data.credits}</div>
 </div>
 `
