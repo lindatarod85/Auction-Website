@@ -1,8 +1,9 @@
 import makeApiCall from "./utils/makeApiCall.js";
 import { baseURL } from "./settings/api.js";
+import { myAuth } from "./settings/auth.js";
 import { options } from "./settings/auth.js";
 import displayMessage from "./components/displayMessage.js";
-import {getUsername, getAvatar, getCredits} from "./utils/storage.js";
+import {getUsername, getToken, getAvatar, getCredits} from "./utils/storage.js";
 import createMenu from "./components/createMenu.js";
 
 createMenu();
@@ -12,10 +13,15 @@ const profileHeader = document.querySelector(".profile-header");
 const myListingsContainer = document.querySelector(".my-listings");
 const myBidsContainer = document.querySelector(".my-bids");
 
+
 //Get profile details
 async function getProfile(){
+
     const url = baseURL + "api/v1/auction/profiles/" + name;
     const {data, error} = await makeApiCall(url, options);
+
+    console.log(url);
+
 
     if(error){
         displayMessage("error", "An error occured", ".message-container");

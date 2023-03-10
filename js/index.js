@@ -7,11 +7,12 @@ import createMenu from "./components/createMenu.js";
 createMenu();
 
 const listingsContainer = document.querySelector(".listings");
-
+/*
 //Get Listings
 async function getListings(){
 
   const url = baseURL + "api/v1/auction/listings";
+  
   const {data, error} = await makeApiCall(url, options);
 
   if(error){
@@ -35,8 +36,43 @@ function displayListings(data){
     </div>
     </a>`
     });
-}
+}*/
 
+//Get active listings
+
+async function getActiveListings(){
+
+  const url = baseURL + "api/v1/auction/listings?_active=true";
+  
+  const {data, error} = await makeApiCall(url, options);
+
+  console.log(data);
+
+  if(error){
+    displayMessage("error", "An error occured", ".message-container");
+}
+    displayActiveListings(data);
+}
+getActiveListings();
+
+
+//Display Active Listings
+function displayActiveListings(data){
+
+  data.forEach (function (listing){
+    listingsContainer.innerHTML += `
+    <a href="listing.html?listingID=${listing.id}">
+    <div class="card" style="width: 18rem;">
+    <img src="${listing.media[0]}" class="card-img-top listing-img" alt="product image">
+    <div class="card-body">
+      <h5 class="card-title">${listing.title}</h5>
+      <p class="card-text">${listing.description}</p>
+    </div>
+    </div>
+    </a>`
+    });
+
+}
 
 
 

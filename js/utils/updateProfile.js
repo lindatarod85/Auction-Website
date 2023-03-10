@@ -51,7 +51,7 @@ async function updateAvatar(image){
            
            setTimeout (function(){
             location.href = "/profile.html";
-           } , 3000);
+           } , 2000);
 
           }else{
             displayMessage("error", "An error occured", ".message-container");
