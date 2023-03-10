@@ -65,6 +65,8 @@ async function userRegister(username, email, password) {
             location.href = "/login.html";
            } , 3000);
 
+          } else{
+            displayMessage("error", json.errors[0].message, ".message-container")
           }
         
       } catch(error){

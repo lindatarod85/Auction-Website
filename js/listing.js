@@ -13,7 +13,7 @@ const mediaGallery = document.querySelector(".media-gallery")
 const queryString = document.location.search;
 const params = new URLSearchParams(queryString);
 const listingID = params.get("listingID");
-const url = baseURL + "api/v1/auction/listings/" + listingID;
+const url = baseURL + "api/v1/auction/listings/" + listingID + "?_bids=true&_seller=true";
 
 // Get Listing
 async function getListing(){
@@ -26,8 +26,8 @@ async function getListing(){
         displayMessage("error", "An error occured", ".message-container");
     }
         displayListing(data);
-        console.log(data);
-        console.log(data.id);
+        //console.log(data);
+        //console.log(data.id);
     }
     getListing();
 
@@ -51,8 +51,15 @@ async function getListing(){
         // Only for logged in users
         const tokenKey = getToken();
         if(tokenKey){
+
+        const allBids = data.bids;
+       const highestBid = Math.max(...allBids.map(o => o.amount))
+       console.log(highestBid); 
+
               detailContainer.innerHTML +=`<div class="bid-container">
          <p class="view-bids">Bids: ${data._count.bids}</p>
+         <p>Highest Bid: ${highestBid}</p>
+         <p>Seller: ${data.seller.name}</p>
         <form>
         <label for="bid">Bid On This Item</label><br>
         <input id="bid" type="text" />
@@ -62,6 +69,7 @@ async function getListing(){
          </div>`
      };
 
+     
      //Make Bid
 
      const form = document.querySelector("form");
@@ -101,12 +109,11 @@ async function getListing(){
             const json = await response.json();
         
             console.log(json);
-            console.log(json.errors[0].message);
+            //console.log(json.errors[0].message);
            
          
             if(json.created){
                 const bidSuccess = "You successfully sent a bid";
-
                 displayMessage("success", bidSuccess, ".bid-message"); 
               } else{
                 const bidError = json.errors[0].message;

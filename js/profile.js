@@ -54,21 +54,31 @@ async function getMyListings(){
     console.log(data);
     if(error){
         displayMessage("error", "An error occured", ".message-container");
-
-    displayMyListings(data)
     }
+    displayMyListings(data)
 }
 getMyListings();
 
 // Display my Listings
 function displayMyListings(data){
 
-myListingsContainer.innerHTML+= ``;
+    data.forEach (function (listing){
+        myListingsContainer.innerHTML += `
+        <a href="listing.html?listingID=${listing.id}">
+        <div class="card" style="width: 18rem;">
+        <img src="${listing.media[0]}" class="card-img-top listing-img" alt="product image">
+        <div class="card-body">
+          <h5 class="card-title">${listing.title}</h5>
+          <p class="card-text">${listing.description}</p>
+        </div>
+        </div>
+        </a>`
+        });
 }
 
 //Get my Bids
 async function getMyBids(){
-    const url = baseURL + "api/v1/auction/profiles/" + name + "/bids";
+    const url = baseURL + "api/v1/auction/profiles/" + name + "/bids?_listings=true";
     const {data, error} = await makeApiCall(url, options);
 
     console.log(data);
@@ -81,8 +91,44 @@ getMyBids();
 
 //Display my Bids
 function displayMyBids(data){
-myBidsContainer.innerHTML+=``;
+
+    data.forEach (function (bid){
+        myBidsContainer.innerHTML += `
+        <a href="listing.html?listingID=${bid.listing.id}">
+        <div class="card" style="width: 18rem;">
+        <img src="${bid.listing.media[0]}" class="card-img-top listing-img" alt="product image">
+        <div class="card-body">
+          <h5 class="card-title">${bid.listing.title}</h5>
+          <p class="card-text">Ends At: ${bid.listing.endsAt}</p>
+          <div class="bid-info">
+          <p>Bidders Name: ${bid.bidderName}</p>
+          <p>Bid amount: ${bid.amount}</p>
+        <p>Bid made: ${bid.created}</p>
+        </div>
+        </div>
+        </div>
+        </a>`
+        });
+
 
 }
 
 
+/*
+function displayActiveListings(data){
+
+  data.forEach (function (listing){
+    listingsContainer.innerHTML += `
+    <a href="listing.html?listingID=${listing.id}">
+    <div class="card" style="width: 18rem;">
+    <img src="${listing.media[0]}" class="card-img-top listing-img" alt="product image">
+    <div class="card-body">
+      <h5 class="card-title">${listing.title}</h5>
+      <p class="card-text">${listing.description}</p>
+    </div>
+    </div>
+    </a>`
+    });
+
+}
+ */
