@@ -72,6 +72,10 @@ a.active {
     background: green;
 }
 
+.none{
+    display: none;
+}
+
   
   .message-error {
     border-color: red;

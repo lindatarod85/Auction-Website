@@ -43,21 +43,23 @@ function displayListings(data){
 async function getActiveListings(){
 
   const url = baseURL + "api/v1/auction/listings?_active=true";
-  
   const {data, error} = await makeApiCall(url, options);
-
   console.log(data);
 
   if(error){
     displayMessage("error", "An error occured", ".message-container");
 }
-    displayActiveListings(data);
+    
+displayActiveListings(data);
+searchResults(data);
+    
 }
 getActiveListings();
 
-
 //Display Active Listings
 function displayActiveListings(data){
+
+  listingsContainer.innerHTML = "";
 
   data.forEach (function (listing){
     listingsContainer.innerHTML += `
@@ -73,6 +75,43 @@ function displayActiveListings(data){
     });
 
 }
+
+//Filter
+function searchResults(data) {
+	const search = document.querySelector(".search");
+
+	search.onkeyup = function (event) {
+		const searchValue = event.target.value.trim();
+
+    listingsContainer.innerHTML = "";
+
+		const filteredResults = data.filter(function (result) {
+      if (result.title.toLowerCase().startsWith(searchValue) || searchValue ==="") {
+				return true;
+			}
+		});
+    
+		//displayActiveListings(filteredResults);
+    noResults(filteredResults) 
+	}
+}
+function noResults(filteredResults) {
+  
+	if (filteredResults.length) {
+		displayActiveListings(filteredResults);
+	} else {
+		displayMessage("error", "No results were found", ".message-container");
+	}
+}
+
+
+
+
+
+
+
+
+
 
 
 
