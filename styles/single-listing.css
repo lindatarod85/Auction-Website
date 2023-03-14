@@ -1,0 +1,34 @@
+.listing-details{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.bid-container{
+    grid-column: 2;
+}
+
+.listing-details .main-img{
+    width: 600px;
+    height: 400px;
+    object-fit: cover;
+}
+
+.media-gallery{
+    display: grid;
+    width: 600px;
+    margin-top: 10px;
+    gap: 10px;
+    grid-template-columns: repeat(auto-fill, minmax(140px, 3fr));
+    grid-template-rows: repeat(auto, 600px);
+}
+
+
+.media-gallery img{
+    width: 140px;
+    height: 140px;
+    object-fit: cover;
+}
+
+.listing-details h1{
+    text-transform: capitalize;
+}

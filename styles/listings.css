@@ -1,0 +1,24 @@
+/* Listings */
+
+.listing-img{
+    width: 250px;
+    height: 250px;
+    object-fit: cover;
+}
+
+.listings{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    row-gap: 35px;
+    padding: 0 !important;
+    
+}
+
+.search{
+    margin: 20px 0;
+    padding: 10px;
+}
+
+.card-title{
+    text-transform: capitalize;
+}

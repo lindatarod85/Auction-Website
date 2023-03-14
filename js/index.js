@@ -3,43 +3,13 @@ import { baseURL } from "./settings/api.js";
 import { options } from "./settings/auth.js";
 import displayMessage from "./components/displayMessage.js";
 import createMenu from "./components/createMenu.js";
+import { searchResults } from "./utils/searchResults.js";
 
 createMenu();
 
-const listingsContainer = document.querySelector(".listings");
-/*
-//Get Listings
-async function getListings(){
+export const listingsContainer = document.querySelector(".listings");
 
-  const url = baseURL + "api/v1/auction/listings";
-  
-  const {data, error} = await makeApiCall(url, options);
-
-  if(error){
-    displayMessage("error", "An error occured", ".message-container");
-}
-    displayListings(data);
-}
-getListings();
-
-//Display Listings
-function displayListings(data){
-  data.forEach (function (listing){
-    listingsContainer.innerHTML += `
-    <a href="listing.html?listingID=${listing.id}">
-    <div class="card" style="width: 18rem;">
-    <img src="${listing.media[0]}" class="card-img-top listing-img" alt="product image">
-    <div class="card-body">
-      <h5 class="card-title">${listing.title}</h5>
-      <p class="card-text">${listing.description}</p>
-    </div>
-    </div>
-    </a>`
-    });
-}*/
-
-//Get active listings
-
+//Get Active Listings
 async function getActiveListings(){
 
   const url = baseURL + "api/v1/auction/listings?_active=true";
@@ -57,65 +27,29 @@ searchResults(data);
 getActiveListings();
 
 //Display Active Listings
-function displayActiveListings(data){
+export function displayActiveListings(data){
 
   listingsContainer.innerHTML = "";
 
   data.forEach (function (listing){
+
+    let imageSrc = listing.media[0];
+    if(!listing.media.length){
+      imageSrc = "https://placeimg.com/250/180/arch";
+    }
+
     listingsContainer.innerHTML += `
     <a href="listing.html?listingID=${listing.id}">
     <div class="card" style="width: 18rem;">
-    <img src="${listing.media[0]}" class="card-img-top listing-img" alt="product image">
+    <img src=${imageSrc} class="card-img-top listing-img" alt="product image">
     <div class="card-body">
-      <h5 class="card-title">${listing.title}</h5>
-      <p class="card-text">${listing.description}</p>
+      <h3 class="card-title">${listing.title}</h3>
+      <p class="card-text">Ends At: ${listing.endsAt}</p>
     </div>
     </div>
     </a>`
     });
-
 }
-
-//Filter
-function searchResults(data) {
-	const search = document.querySelector(".search");
-
-	search.onkeyup = function (event) {
-		const searchValue = event.target.value.trim();
-
-    listingsContainer.innerHTML = "";
-
-		const filteredResults = data.filter(function (result) {
-      if (result.title.toLowerCase().startsWith(searchValue) || searchValue ==="") {
-				return true;
-			}
-		});
-    
-		//displayActiveListings(filteredResults);
-    noResults(filteredResults) 
-	}
-}
-function noResults(filteredResults) {
-  
-	if (filteredResults.length) {
-		displayActiveListings(filteredResults);
-	} else {
-		displayMessage("error", "No results were found", ".message-container");
-	}
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

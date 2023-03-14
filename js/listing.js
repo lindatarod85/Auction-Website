@@ -33,20 +33,39 @@ async function getListing(){
 
     //Display Listing
     function displayListing(data){
+
+      let imageSrc = data.media[0];
+      if(!data.media.length){
+        imageSrc = "https://placeimg.com/250/180/arch";
+      }
+      
         detailContainer.innerHTML += `
+        <div>
+        <img class="main-img" src="${imageSrc}" alt="${data.title}" />
+        </div>
+        <div class="listing-content">
         <h1>${data.title}</h1>
-        <img src="${data.media[0]}" />
         Description: ${data.description}
         <p>Ends At: ${data.endsAt}</p>
+        </div>
         `
-
+        console.log(data);
+    
     //Gallery
     data.media.forEach(function(media){
         mediaGallery.innerHTML += `
-        <img src="${media}" />
+        <img class="gallery-img" src="${media}" alt="" />
         `
         });
-
+         
+        //Change image src
+    const galleryImage = document.querySelector(".gallery-img");
+    const mainImage = document.querySelector(".main-img");
+    let galleryImageSrc = galleryImage.src;
+      let mainImageSrc = mainImage.src;
+    galleryImage.addEventListener("click", function(){
+      mainImageSrc = galleryImageSrc;
+    });
 
         // Only for logged in users
         const tokenKey = getToken();
@@ -56,7 +75,7 @@ async function getListing(){
        const highestBid = Math.max(...allBids.map(o => o.amount))
        console.log(highestBid); 
 
-              detailContainer.innerHTML +=`<div class="bid-container">
+              document.querySelector(".listing-content").innerHTML +=`<div class="bid-container">
          <p class="view-bids">Bids: ${data._count.bids}</p>
          <p>Highest Bid: ${highestBid}</p>
          <p>Seller: ${data.seller.name}</p>
@@ -68,13 +87,12 @@ async function getListing(){
         <div class="bid-message"></div>
          </div>`
      };
-
      
      //Make Bid
 
      const form = document.querySelector("form");
      const bidInput = document.querySelector("#bid");
-    
+    if(tokenKey){
      form.addEventListener("submit", submitForm);
 
        function submitForm(event) {
@@ -88,6 +106,7 @@ async function getListing(){
         makeBid(bidInputValue);
 
        }
+      }
 
        async function makeBid(bid){
 
@@ -109,8 +128,6 @@ async function getListing(){
             const json = await response.json();
         
             console.log(json);
-            //console.log(json.errors[0].message);
-           
          
             if(json.created){
                 const bidSuccess = "You successfully sent a bid";
@@ -119,8 +136,6 @@ async function getListing(){
                 const bidError = json.errors[0].message;
                 displayMessage("error", bidError, ".bid-message");
               }
-       
-    
             
           } catch(error){  
             console.log(error);
