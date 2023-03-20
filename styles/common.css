@@ -7,6 +7,12 @@
   box-sizing: border-box;
 }
 
+body {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+  }
+
 /* Fonts */
 body{
     font-family: 'Merriweather Sans', sans-serif;
@@ -37,7 +43,7 @@ header{
 }
 
 .nav-container{
-    padding: 10px 60px !important;
+    padding: 10px 20px !important;
 }
 
 .navbar a{
@@ -69,14 +75,22 @@ a.active {
 
 /* Main */
 
-main {
-    margin: 40px 60px;;
-}
+main{
+    flex: 1;
+    margin: 40px auto;
+  }
 
 /* Links */
 
 main a{
     text-decoration: none !important;
+    color:#3F52E3 !important;
+    font-style: italic;
+}
+
+main a:hover{
+    text-decoration: underline !important;
+    text-underline-position: under;
 }
 
 /* Footer */
@@ -108,6 +122,7 @@ footer p{
 
 
 
+
 /* Messages */
 
 .message {
@@ -120,8 +135,8 @@ footer p{
 .error {
     margin-top: 10px;
     border-color: red;
-    color: white;
-    background: red;
+    color: black;
+    background: transparent;
 }
 
 .success {
@@ -141,8 +156,8 @@ footer p{
   
   .message-error {
     border-color: red;
-    color: white;
-    background: red;
+    color: black;
+    background: transparent;
     width: 600px;
     padding: 10px;
     margin: 5px 0 15px 0;

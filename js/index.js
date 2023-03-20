@@ -47,7 +47,8 @@ export function displayActiveListings(data){
       <p class="card-text">Ends At: ${listing.endsAt}</p>
     </div>
     </div>
-    </a>`
+    </a>
+    `
     });
 }
 

@@ -32,3 +32,32 @@
 .listing-details h1{
     text-transform: capitalize;
 }
+
+form button{
+background-color:#F12D2D;
+border:none;
+color: white;
+padding: 5px 20px;
+border-radius: 50px;
+}
+
+form input{
+    width: 80px;
+    border: 1px solid black;
+    padding: 3px;
+}
+
+input::placeholder{
+    text-align: center;
+}
+
+.listing-content{
+    position: relative;
+    padding-left: 20px;
+}
+
+.back{
+    position: absolute;
+    bottom: 0;
+}
+

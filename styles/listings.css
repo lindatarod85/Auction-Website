@@ -1,7 +1,6 @@
 /* Listings */
 
-.listing-img{
-    width: 250px;
+.card-img-top{
     height: 250px;
     object-fit: cover;
 }
@@ -9,9 +8,8 @@
 .listings{
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    row-gap: 35px;
-    padding: 0 !important;
-    
+    gap: 30px;
+    padding: 0 !important; 
 }
 
 .search{
@@ -19,6 +17,14 @@
     padding: 10px;
 }
 
+.card{
+    border: none !important;
+}
+
 .card-title{
     text-transform: capitalize;
+}
+
+form input{
+    border: 1px solid black;
 }
