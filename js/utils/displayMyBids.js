@@ -3,23 +3,33 @@ const viewMore = document.querySelector(".view-more-bids");
 
 
 export function displayMyBids(data){
-    const bid = data;
+    const bids = data;
+    viewMore.style.display = "none";
 
-    for(let i = 0; i < bid.length; i++){
+    if(bids.length === 0){
+      return myBidsContainer.innerHTML += `<div class="no-bids">you haven't made any bids yet.</div>`
+    }
+
+    for(let i = 0; i < bids.length; i++){
+
+      if(i => 5){
+        viewMore.style.display = "block";
+      }
+
         if (i === 4) {
             break;
           }
 
         myBidsContainer.innerHTML += `
-        <a href="listing.html?listingID=${bid[i].id}">
+        <a href="listing.html?listingID=${bids[i].id}">
         <div class="card" style="width: 18rem;">
-        <img src="${bid[i].listing.media[0]}" class="card-img-top listing-img" alt="product image">
+        <img src="${bids[i].listing.media[0]}" class="card-img-top listing-img" alt="product image">
         <div class="card-body">
-          <h5 class="card-title">${bid[i].listing.title}</h5>
-          <p class="card-text">Ends At: ${bid[i].listing.endsAt}</p>
+          <h5 class="card-title">${bids[i].listing.title}</h5>
+          <p class="card-text">Ends At: ${bids[i].listing.endsAt}</p>
           <div class="bid-info">
-          <p>Bid amount: ${bid[i].amount}</p>
-        <p>Bid made: ${bid[i].created}</p>
+          <p>Bid amount: ${bids[i].amount}</p>
+        <p>Bid made: ${bids[i].created}</p>
         </div>
         </div>
         </div>
@@ -28,26 +38,30 @@ export function displayMyBids(data){
     }
 
     export function clickViewBids(data){
-        const bid = data;
+        const bids = data;
 
         viewMore.addEventListener("click", function(){
-            for(let i = 4; i < bid.length; i++){
+            for(let i = 4; i < bids.length; i++){
 
-                let imageSrc = bid[i].listing.media[0];
-                if(!bid[i].listing.media.length){
+                let imageSrc = bids[i].listing.media[0];
+                if(!bids[i].listing.media.length){
                   imageSrc = "https://placeimg.com/250/180/arch";
                 }
 
+                if (myBidsContainer.children.length === bids.length) {
+                    viewMore.style.display = "none";
+                  }
+
                 myBidsContainer.innerHTML += `
-                <a href="listing.html?listingID=${bid[i].id}">
+                <a href="listing.html?listingID=${bids[i].id}">
                 <div class="card" style="width: 18rem;">
                 <img src="${imageSrc}" class="card-img-top listing-img" alt="product image">
                 <div class="card-body">
-                  <h5 class="card-title">${bid[i].listing.title}</h5>
-                  <p class="card-text">Ends At: ${bid[i].listing.endsAt}</p>
+                  <h5 class="card-title">${bids[i].listing.title}</h5>
+                  <p class="card-text">Ends At: ${bids[i].listing.endsAt}</p>
                   <div class="bid-info">
-                  <p>Bid amount: ${bid[i].amount}</p>
-                <p>Bid made: ${bid[i].created}</p>
+                  <p>Bid amount: ${bids[i].amount}</p>
+                <p>Bid made: ${bids[i].created}</p>
                 </div>
                 </div>
                 </div>

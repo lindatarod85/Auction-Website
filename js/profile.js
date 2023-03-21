@@ -28,10 +28,16 @@ profileHeader.innerHTML="";
 
 //Display profile details
 function displayProfile(data){
+
+    let imageSrc = data.avatar;
+    if(data.avatar === null){
+      imageSrc = "https://placeimg.com/250/180/arch";
+    }
+
 profileHeader.innerHTML += `
 <div class="profile">
-<img src="${data.avatar}" />
-<h2>Hello ${data.name}</h2>
+<img src="${imageSrc}" />
+<h1>Hello ${data.name}</h1>
 </div>
 <div class="profile-menu">
 <a href="/updateProfile.html">Update Profile</a>

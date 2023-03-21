@@ -11,6 +11,7 @@ body {
     display: flex;
     min-height: 100vh;
     flex-direction: column;
+    background-color: #F6F6F6;
   }
 
 /* Fonts */
@@ -78,6 +79,7 @@ a.active {
 main{
     flex: 1;
     margin: 40px auto;
+    padding: 0 20px;
   }
 
 /* Links */
@@ -104,7 +106,7 @@ footer{
 
 footer p{
     margin: 0;
-    color: white !important;
+    color: #F6F6F6 !important;
 }
 
 
@@ -173,8 +175,6 @@ footer p{
     margin: 5px 0 15px 0;
     display: none;
   }
-
-
 
   /* Forms styles */
 
