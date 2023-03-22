@@ -51,7 +51,7 @@ header{
     color: #F6F6F6;
     text-decoration: none;
     font-size: 20px !important;
-    color: white !important
+    color: #F6F6F6 !important
 }
 
 .navbar a:hover{
@@ -74,12 +74,19 @@ a.active {
     margin-left: 10px;
 }
 
+.nav-item button {
+    background-color: #F6F6F6;
+    color:#3F52E3;
+    padding: 5px 15px;
+    border: none;
+}
+
 /* Main */
 
 main{
     flex: 1;
     margin: 40px auto;
-    padding: 0 20px;
+    
   }
 
 /* Links */
@@ -157,10 +164,10 @@ footer p{
 
   
   .message-error {
-    border-color: red;
-    color: black;
+    border:2px solid red;
+    color: red;;
     background: transparent;
-    width: 600px;
+   
     padding: 10px;
     margin: 5px 0 15px 0;
     display: none;
@@ -170,16 +177,11 @@ footer p{
     border-color: green;
     color: white;
     background: green;
-    width: 600px;
+   
     padding: 10px;
     margin: 5px 0 15px 0;
     display: none;
   }
 
-  /* Forms styles */
-
-  form input{
-    width: 600px;
-    margin-bottom: 15px;
-  }
+  
   

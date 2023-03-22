@@ -71,45 +71,4 @@ export function displayMyListings(data){
     }
 
 
-    /*function genHTML(data){
-    let imageSrc = "https://placeimg.com/250/180/arch";
-    if(data[i].media.length){
-      imageSrc = data[i].media[0]
-    }
-  
-    const html = `
-      <a href="listing.html?listingID=${data[i].id}">
-        <div class="card" style="width: 18rem;">
-          <img src="${imageSrc}" class="card-img-top listing-img" alt="product image" />
-          <div class="card-body">
-            <h5 class="card-title">${data[i].title}</h5>
-            <p class="card-text">Ends At: ${data[i].endsAt}</p>
-          </div>
-        </div>
-      </a>
-    `
-    return html;
-  }
-
-  export function displayMyListings(data){
    
-
-        for(let i = 0; i < data.length; i++){
-            if (i === 4) {
-                break;
-              }
-              myListingsContainer.innerHTML += genHTML(data[i])
-            }
-        }
-
-        export function clickViewListings(data){
-            
-            viewMore.addEventListener("click", function(){
-                for(let i = 4; i < data.length; i++){
-    
-                    myListingsContainer.innerHTML += genHTML(data[i])
-                }
-            })
-        }
-*/
-

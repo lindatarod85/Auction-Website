@@ -1,0 +1,23 @@
+.form-container{
+    padding: 0 !important;
+}
+
+form input{
+    padding: 8px;
+    border: 1px solid #3F52E3;
+    width: 600px;
+    margin-bottom: 15px;
+      
+}
+
+form button{
+    background-color: #3F52E3;
+    padding: 10px;
+    width: 100px;
+    border: none;
+    color: #f6f6f6;
+}
+
+.link-container{
+    margin-top: 20px;
+}

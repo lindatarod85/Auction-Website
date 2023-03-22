@@ -17,7 +17,7 @@ async function getActiveListings(){
   console.log(data);
 
   if(error){
-    displayMessage("error", "An error occured", ".message-container");
+    return displayMessage("error", "An error occured", ".message-container"); 
 }
     
 displayActiveListings(data);
