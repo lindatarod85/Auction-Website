@@ -71,7 +71,7 @@ a.active {
 }
 
 .navbar-nav li{
-    margin-left: 10px;
+    margin-left: 20px;
 }
 
 .nav-item button {
@@ -102,6 +102,14 @@ main a:hover{
     text-underline-position: under;
 }
 
+/* Loading indicator */
+
+.loader{
+    font-size: 32px;
+    color:#3F52E3;
+
+}
+
 /* Footer */
 footer{
     display: flex;
@@ -117,47 +125,26 @@ footer p{
 }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 /* Messages */
-
-.message {
-    width: 600px;
-    padding: 1rem;
-    border: 1px solid grey;
-    color: grey;
-}
 
 .error {
     margin-top: 10px;
-    border-color: red;
-    color: black;
+    padding: 1rem;
+    border: 2px solid red;
+    color: red;
     background: transparent;
 }
 
 .success {
     margin-top: 10px;
-    border-color: green;
+    padding: 1rem;
     color: white;
     background: green;
 }
 
 .filter{
     margin-top: 10px;
-    border-color: red;
+    border:1px solid red;
     color: black;
     background: transparent;  
 }
@@ -167,9 +154,9 @@ footer p{
     border:2px solid red;
     color: red;;
     background: transparent;
-   
     padding: 10px;
     margin: 5px 0 15px 0;
+    width: 600px;
     display: none;
   }
   
@@ -177,7 +164,6 @@ footer p{
     border-color: green;
     color: white;
     background: green;
-   
     padding: 10px;
     margin: 5px 0 15px 0;
     display: none;

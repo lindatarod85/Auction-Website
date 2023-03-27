@@ -7,12 +7,12 @@ export function displayMyBids(data){
     viewMore.style.display = "none";
 
     if(bids.length === 0){
-      return myBidsContainer.innerHTML += `<div class="no-bids">you haven't made any bids yet.</div>`
+      return myBidsContainer.innerHTML += `<div class="no-bids">You haven't made any bids yet.</div>`
     }
 
     for(let i = 0; i < bids.length; i++){
 
-      if(i => 5){
+      if(i > 4){
         viewMore.style.display = "block";
       }
 
@@ -45,7 +45,7 @@ export function displayMyBids(data){
 
                 let imageSrc = bids[i].listing.media[0];
                 if(!bids[i].listing.media.length){
-                  imageSrc = "https://placeimg.com/250/180/arch";
+                  imageSrc = "images/image-not-available.png";
                 }
 
                 if (myBidsContainer.children.length === bids.length) {

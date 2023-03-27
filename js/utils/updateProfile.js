@@ -3,6 +3,8 @@ import { myAuth} from "../settings/auth.js";
 import displayMessage from "../components/displayMessage.js";
 import {getUsername} from "../utils/storage.js";
 import createMenu from "../components/createMenu.js";
+import {checkLength} from "../components/formFunctions.js";
+import makeApiCall from "./makeApiCall.js";
 
 createMenu();
 
@@ -15,53 +17,58 @@ form.addEventListener("submit", submitForm);
 function submitForm(event) {
   event.preventDefault();
 
-  const profilPicValue = profilePicture.value.trim();
+  const profilePicValue = profilePicture.value.trim();
 
-  //validateForm(event);
+  validateForm(event);
   form.reset();
 
-updateAvatar(profilPicValue);
+updateAvatar(profilePicValue);
 
 }
 
 async function updateAvatar(image){
 
-    const url = baseURL + "api/v1/auction/profiles/" + name + "/media";
+  const url = baseURL + "api/v1/auction/profiles/" + name + "/media";
 
-    const data = JSON.stringify({ avatar: image });
+  const json = JSON.stringify({ avatar: image });
 
-    const options = {
-        method: "PUT",
-        body: data,
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: myAuth,
-        },
-      };
+  const options = {
+      method: "PUT",
+      body: json,
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: myAuth,
+      },
+    };
 
-      try {
-        const response = await fetch(url, options);
-        const json = await response.json();
-    
-        console.log(json);
+    const {data, error} = await makeApiCall(url, options);
+     
+    if(error){
+        return displayMessage("error", "An error occurred", ".message-container"); 
+     } 
 
-        if (json.avatar) {
+     console.log(data);
 
-    displayMessage("success", "You successfully updated your profile picture", ".message-container");     
-           
-           setTimeout (function(){
-            location.href = "/profile.html";
-           } , 2000);
+     if (data.avatar) {
 
-          }else{
-            displayMessage("error", "An error occured", ".message-container");
-          }
-        
-      } catch(error){
-        
-      }
+      displayMessage("success", "You successfully updated your profile picture", ".message-container");     
+             
+             setTimeout (function(){
+              location.href = "/profile.html";
+             } , 2000);
+            } 
+  }
 
-    }
-    
+  
+    /* Form validation */
+    function validateForm(event) {
+      event.preventDefault();
+  
+  if (checkLength(profilePicture.value, 0) === false) {
+    return displayMessage("error", "You need to provide a URL", ".message-container");
+  } 
+   }
 
-   
+
+
+

@@ -3,6 +3,7 @@ import { checkLength, validateEmail } from "./components/formFunctions.js";
 import displayMessage from "./components/displayMessage.js";
 import { saveToken, saveUser, saveAvatar, saveCredits } from "./utils/storage.js";
 import createMenu from "./components/createMenu.js";
+import makeApiCall from "./utils/makeApiCall.js";
 
 
 createMenu();
@@ -27,11 +28,51 @@ function submitForm(event) {
 
 
 doLogin(emailValue, passwordValue);
-
 }
+//Test makeApiCall
+async function doLogin(email, password) {
+  const url = baseURL + "api/v1/auction/auth/login";
+
+  const json = JSON.stringify({email: email, password: password });
+
+  const options = {
+      method: "POST",
+      body: json,
+      headers: {
+        "Content-Type": "application/json",
+      },
+    };
+
+    const {data, error} = await makeApiCall(url, options);
+     
+    if(error){
+        return displayMessage("error", "An error occurred", ".message-container"); 
+     } 
+
+     if (data.name) {
+      saveToken(data.accessToken);
+      saveUser(data.name); 
+      saveAvatar(data.avatar);
+      saveCredits(data.credits);
+
+     displayMessage("success", "You are successfully logged in", ".message-container");          
+     
+     setTimeout (function(){
+      location.href = "/profile.html";
+     } , 2000);
+  }
+
+     if (data.errors) {
+      console.log("there was an error");
+      displayMessage("error", "Username or password is wrong", ".message-container");
+
+    }
+
+  }
 
 
 
+/*
 async function doLogin(email, password) {
     const url = baseURL + "api/v1/auction/auth/login";
 
@@ -77,9 +118,9 @@ async function doLogin(email, password) {
       }
 
     }
+*/
 
-
-/* Registerform validation */
+/* Form validation */
 
  function validateForm(event) {
     event.preventDefault();

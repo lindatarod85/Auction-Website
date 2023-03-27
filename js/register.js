@@ -4,6 +4,7 @@ import { checkLength } from "./components/formFunctions.js";
 import { validateEmail } from "./components/formFunctions.js";
 import displayMessage from "./components/displayMessage.js";
 import createMenu from "./components/createMenu.js";
+import makeApiCall from "./utils/makeApiCall.js";
 
 createMenu();
 
@@ -15,8 +16,6 @@ const emailError = document.querySelector("#emailError")
 const password = document.querySelector("#password");
 const passwordError = document.querySelector("#passwordError")
 const successMessage = document.querySelector(".message-success");
-
-
 
 form.addEventListener("submit", submitForm);
 
@@ -30,13 +29,50 @@ function submitForm(event) {
   validateForm(event);
   form.reset();
 
-
 userRegister(usernameValue, emailValue, passwordValue);
-
 }
 
+//Test makeApiCall
+
+async function userRegister(username, email, password) {
+  const url = baseURL + "api/v1/auction/auth/register";
+
+  const json = JSON.stringify({ name: username, email: email, password: password });
+
+  const options = {
+      method: "POST",
+      body: json,
+      headers: {
+        "Content-Type": "application/json",
+      },
+    };
+
+    const {data, error} = await makeApiCall(url, options);
+     
+    if(error){
+        return displayMessage("error", "An error occurred", ".message-container"); 
+     } 
+
+     console.log(data);
+
+     if (data.credits) {
+
+         successMessage.style.display = "block";           
+        
+        setTimeout (function(){
+         location.href = "/login.html";
+        } , 3000);
+
+       } else{
+         displayMessage("error", data.errors[0].message, ".message-container")
+       }
+
+  }
 
 
+
+
+/*
 async function userRegister(username, email, password) {
     const url = baseURL + "api/v1/auction/auth/register";
 
@@ -73,7 +109,7 @@ async function userRegister(username, email, password) {
         displayMessage("error", "An error occured", "message-container");
       }
 
-    }
+    }*/
 
 
 /* Registerform validation */

@@ -8,6 +8,7 @@
     <meta name="description" content="Add Listing">
     <link rel="icon" type="image/x-icon" href="/images/icons8-auction-53.png">
     <link rel="stylesheet" href="styles/common.css">
+    <link rel="stylesheet" href="styles/forms.css">
     <link rel="stylesheet" href="styles/media.css">
      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
 </head>
@@ -31,34 +32,34 @@
 
     <main>
         <h1>Add Listing</h1>
-        <div class="container-sm">
+        <div class="container-sm form-container">
             <form>
 
-                <label for="title">Title:</label>
+                <label for="title">Title:</label><br>
                 <input type="text"
-                id="title" name="title" /> 
+                id="title" name="title" /> <br>
                 <div class="message-error" id="titleError">The Title can not be empty. </div>
-
-                <label for="deadline-date">Deadline Date:</label>
+                
+                <label for="deadline-date">Deadline Date:</label><br>
                 <input type="date"
-                id="deadline-date" name="deadline-date" />
+                id="deadline-date" name="deadline-date" /><br>
 
                 
-                <label for="media1">Media Gallery</label>
+                <label for="media1">Media Gallery</label><br>
                 <input type="url"
-                id="media1" name="media" placeholder="https://exampleimage.com" />
+                id="media1" name="media" placeholder="https://exampleimage.com" /><br>
                 <input type="url"
-                id="media2" name="media2" placeholder="https://exampleimage.com" />
+                id="media2" name="media2" placeholder="https://exampleimage.com" /><br>
                 <input type="url"
-                id="media3" name="media3" placeholder="https://exampleimage.com" />
+                id="media3" name="media3" placeholder="https://exampleimage.com" /><br>
                 <input type="url"
                 id="media4" name="media4" placeholder="https://exampleimage.com" />
                 
-               
+               <br>
 
-                <label for="description">Description:</label>
+                <label for="description">Description:</label><br>
                 <input type="text"
-                id="description" name="description" />
+                id="description" name="description" /><br>
 
                 <button>Add Listing</button>
           

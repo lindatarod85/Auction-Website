@@ -38,6 +38,7 @@
         width: 695px;
         height: 400px;
     }
+
 }
 
 @media(max-width: 767px){
@@ -61,7 +62,7 @@
     height: 100px;
     object-fit: cover;
 }
-.form-container, form input{
+.form-container, .form-container form input, .message-error{
     width: 400px !important;
 }
 }
@@ -104,6 +105,12 @@
         margin-left: 0;
     }
 
+    .navbar-toggler{
+        background-color: #f6f6f6 !important;
+        box-shadow: none !important;
+    }
+
+
     .listing-container{
         max-width: 400px !important;
     }
@@ -120,9 +127,10 @@
         font-size: 26px !important;
     }
 
-    .form-container, form input{
+    .form-container, .form-container form input, .message-error{
         width: 300px !important;
     }
+
 }
 
 
@@ -153,7 +161,7 @@
         flex-direction: column;
     }
 
-    .form-container, form input{
+    .form-container, .form-container form input, .message-error{
         width: 200px !important;
     }
 

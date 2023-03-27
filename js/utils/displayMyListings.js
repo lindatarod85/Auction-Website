@@ -8,12 +8,12 @@ export function displayMyListings(data){
     viewMore.style.display = "none";
 
     if(listings.length === 0){
-      return myListingsContainer.innerHTML += `<div class="no-listings">you haven't added any listings yet.</div>`
+      return myListingsContainer.innerHTML += `<div class="no-listings">You haven't added any listings yet.</div>`
     }
 
         for(let i = 0; i < listings.length; i++){
 
-          if(i => 5){
+          if(i > 4){
             viewMore.style.display = "block";
           }
 
@@ -24,7 +24,7 @@ export function displayMyListings(data){
 
               let imageSrc = listings[i].media[0];
     if(!listings[i].media.length){
-      imageSrc = "https://placeimg.com/250/180/arch";
+      imageSrc = "images/image-not-available.png";
     }
             
             myListingsContainer.innerHTML += `

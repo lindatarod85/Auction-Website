@@ -18,15 +18,18 @@ const url =
 
 // Get Listing
 async function getListing() {
-  const { data, error } = await makeApiCall(url, options);
+
+  const {data, error} = await makeApiCall(url, options);
+  console.log(data);
 
   //Head Title
   document.title = "Auction Website | " + data.title;
 
-  if (error) {
-    displayMessage("error", "An error occured", ".message-container");
-  }
-  displayListing(data);
+  if(error || data?.errors?.[0]?.message){
+    detailContainer.innerHTML="";
+    return displayMessage("error", "An error occurred", ".message-container"); 
+ }  
+ displayListing(data);
 }
 getListing();
 
@@ -34,7 +37,7 @@ getListing();
 export function displayListing(data) {
   let imageSrc = data.media[0];
   if (!data.media.length) {
-    imageSrc = "https://placeimg.com/250/180/arch";
+    imageSrc = "images/image-not-available.png";
   }
 
   detailContainer.innerHTML="";
@@ -53,6 +56,5 @@ export function displayListing(data) {
         `;
       
   changeMediaSrc(data);
-  loggedInUsers(data);
-  
+  loggedInUsers(data); 
 }

@@ -10,32 +10,30 @@ createMenu();
 export const listingsContainer = document.querySelector(".listings");
 
 //Get Active Listings
-async function getActiveListings(){
-
+async function getActiveListings() {
   const url = baseURL + "api/v1/auction/listings?_active=true";
+
   const {data, error} = await makeApiCall(url, options);
   console.log(data);
 
-  if(error){
-    return displayMessage("error", "An error occured", ".message-container"); 
-}
+  if(error || data?.errors?.[0]?.message){
+    listingsContainer.innerHTML = "";
+    return displayMessage("error", "An error occurred", ".message-container"); 
+ }
     
 displayActiveListings(data);
 searchResults(data);
-    
 }
 getActiveListings();
 
 //Display Active Listings
-export function displayActiveListings(data){
-
+export function displayActiveListings(data) {
   listingsContainer.innerHTML = "";
 
-  data.forEach (function (listing){
-
+  data.forEach(function (listing) {
     let imageSrc = listing.media[0];
-    if(!listing.media.length){
-      imageSrc = "https://placeimg.com/250/180/arch";
+    if (!listing.media.length) {
+      imageSrc = "images/image-not-available.png";
     }
 
     listingsContainer.innerHTML += `
@@ -48,11 +46,6 @@ export function displayActiveListings(data){
     </div>
     </div>
     </a>
-    `
-    });
+    `;
+  });
 }
-
-
-
-  
-

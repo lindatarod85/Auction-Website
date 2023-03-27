@@ -3,6 +3,7 @@ import { myAuth} from "../settings/auth.js";
 import displayMessage from "../components/displayMessage.js";
 import createMenu from "../components/createMenu.js";
 import { checkLength } from "../components/formFunctions.js";
+import makeApiCall from "./makeApiCall.js";
 
 createMenu();
 
@@ -51,30 +52,31 @@ if(media4Value !== ""){
 addListing(titleValue, deadlineValue, mediaValue, descriptionValue);
 }
 
-
 async function addListing(title, deadline, media, description){
 
-    const url = baseURL + "api/v1/auction/listings/";
+  const url = baseURL + "api/v1/auction/listings/";
 
-    const data = JSON.stringify({ title: title, endsAt: deadline, media, description: description });
+  const json = JSON.stringify({ title: title, endsAt: deadline, media, description: description });
 
 
-    const options = {
-        method: "POST",
-        body: data,
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: myAuth,
-        },
-      };
+  const options = {
+      method: "POST",
+      body: json,
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: myAuth,
+      },
+    };
 
-      try {
-        const response = await fetch(url, options);
-        const json = await response.json();
-    
-        console.log(json);
+    const {data, error} = await makeApiCall(url, options);
+     
+    if(error){
+        return displayMessage("error", "An error occurred", ".message-container"); 
+     } 
 
-        if (json.title) {
+     console.log(data);
+
+        if (data.title) {
 
     displayMessage("success", "You successfully Added Listing", ".message-container");     
            
@@ -83,15 +85,11 @@ async function addListing(title, deadline, media, description){
            } , 2000);
 
           }else{
-            displayMessage("error", "An error occured", ".message-container");
+            displayMessage("error", data?.errors?.[0]?.message, ".message-container");
           }
-        
-      } catch(error){
-        
-      }
+  }
 
-}
-
+/* Validate Form */
 function validateForm(event) {
     event.preventDefault();
 

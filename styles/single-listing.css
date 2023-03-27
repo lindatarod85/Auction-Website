@@ -36,7 +36,7 @@
 form button{
 background-color:#F12D2D;
 border:none;
-color: white;
+color: #f6f6f6;
 padding: 4px 20px;
 }
 
@@ -44,7 +44,9 @@ form input{
     width: 80px;
     border: 1px solid black;
     padding: 3px;
+    border: 1px solid #3F52E3;
 }
+
 
 input::placeholder{
     text-align: center;
