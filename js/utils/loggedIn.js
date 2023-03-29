@@ -10,6 +10,8 @@ export function loggedInUsers(data) {
         const highestBid = Math.max(...allBids.map((o) => o.amount));
         console.log(highestBid);
 
+        document.querySelector(".view-make-bid").style.display = "none";
+
         document.querySelector(
             ".listing-content"
         ).innerHTML += `<div class="bid-container">

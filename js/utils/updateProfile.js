@@ -15,7 +15,12 @@ const name = getUsername();
 form.addEventListener("submit", submitForm);
 
 function submitForm(event) {
-  event.preventDefault();
+
+  const isValid = validateForm(event);
+
+  if (!isValid){
+    return displayMessage("error", "You need to provide a URL", ".message-container");
+  }
 
   const profilePicValue = profilePicture.value.trim();
 
@@ -65,8 +70,10 @@ async function updateAvatar(image){
       event.preventDefault();
   
   if (checkLength(profilePicture.value, 0) === false) {
-    return displayMessage("error", "You need to provide a URL", ".message-container");
-  } 
+    return false;
+  } else{
+    return true;
+  }
    }
 
 

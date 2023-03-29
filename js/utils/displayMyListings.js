@@ -32,8 +32,8 @@ export function displayMyListings(data){
             <div class="card" style="width: 18rem;">
             <img src="${imageSrc}" class="card-img-top listing-img" alt="product image">
             <div class="card-body">
-              <h5 class="card-title">${listings[i].title}</h5>
-              <p class="card-text">Ends At: ${listings[i].endsAt}</p>
+              <h3 class="card-title">${listings[i].title}</h3>
+              <p class="card-text"><span>Ends At:</span> ${listings[i].endsAt}</p>
             </div>
             </div>
             </a>
@@ -60,8 +60,8 @@ export function displayMyListings(data){
                 <div class="card" style="width: 18rem;">
                 <img src="${imageSrc}" class="card-img-top listing-img" alt="product image">
                 <div class="card-body">
-                  <h5 class="card-title">${listings[i].title}</h5>
-                  <p class="card-text">Ends At: ${listings[i].endsAt}</p>
+                  <h3 class="card-title">${listings[i].title}</h3>
+                  <p class="card-text"><span>Ends At:</span> ${listings[i].endsAt}</p>
                 </div>
                 </div>
                 </a>

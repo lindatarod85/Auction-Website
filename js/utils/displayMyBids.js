@@ -25,8 +25,8 @@ export function displayMyBids(data){
         <div class="card" style="width: 18rem;">
         <img src="${bids[i].listing.media[0]}" class="card-img-top listing-img" alt="product image">
         <div class="card-body">
-          <h5 class="card-title">${bids[i].listing.title}</h5>
-          <p class="card-text">Ends At: ${bids[i].listing.endsAt}</p>
+          <h3 class="card-title">${bids[i].listing.title}</h3>
+          <p class="card-text"><span>Ends At:</span> ${bids[i].listing.endsAt}</p>
           <div class="bid-info">
           <p>Bid amount: ${bids[i].amount}</p>
         <p>Bid made: ${bids[i].created}</p>
@@ -57,8 +57,8 @@ export function displayMyBids(data){
                 <div class="card" style="width: 18rem;">
                 <img src="${imageSrc}" class="card-img-top listing-img" alt="product image">
                 <div class="card-body">
-                  <h5 class="card-title">${bids[i].listing.title}</h5>
-                  <p class="card-text">Ends At: ${bids[i].listing.endsAt}</p>
+                  <h3 class="card-title">${bids[i].listing.title}</h3>
+                  <p class="card-text"><span>Ends At:</span> ${bids[i].listing.endsAt}</p>
                   <div class="bid-info">
                   <p>Bid amount: ${bids[i].amount}</p>
                 <p>Bid made: ${bids[i].created}</p>

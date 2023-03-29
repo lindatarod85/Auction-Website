@@ -81,6 +81,10 @@ a.active {
     border: none;
 }
 
+.nav-item button:hover{
+    box-shadow: 3px 3px 3px 3px #C0C0C0;
+}
+
 /* Main */
 
 main{

@@ -51,6 +51,7 @@ export function displayListing(data) {
         <h1>${data.title}</h1>
        <p><b>Item description:</b> ${data.description}</p>
         <p><b>Ends At:</b> ${data.endsAt}</p>
+        <p class="view-make-bid">You need to <a href="/login.html">login</a> to view and make bids</p>
         <a class="back" href="/index.html"><i class="fa-solid fa-angles-left"></i> Back to Listings</a>
         </div>
         `;

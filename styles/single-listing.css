@@ -38,13 +38,20 @@ background-color:#F12D2D;
 border:none;
 color: #f6f6f6;
 padding: 4px 20px;
+border: 2px solid #F12D2D;
+}
+
+form button:hover{
+    background-color: transparent;
+    border-color: #F12D2D;
+    color: black;
+    transition: 0.3s;
 }
 
 form input{
     width: 80px;
     border: 1px solid black;
-    padding: 3px;
-    border: 1px solid #3F52E3;
+    padding: 5px;
 }
 
 
@@ -61,4 +68,6 @@ input::placeholder{
     position: absolute;
     bottom: 0;
 }
+
+
 

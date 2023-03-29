@@ -42,7 +42,7 @@ export function displayActiveListings(data) {
     <img src=${imageSrc} class="card-img-top listing-img" alt="product image">
     <div class="card-body">
       <h3 class="card-title">${listing.title}</h3>
-      <p class="card-text">Ends At: ${listing.endsAt}</p>
+      <p class="card-text"><span>Ends At:</span> ${listing.endsAt}</p>
     </div>
     </div>
     </a>

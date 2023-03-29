@@ -45,7 +45,7 @@ async function getProfile(){
  profileHeader.innerHTML += `
  <div class="profile">
  <img src="${imageSrc}" />
- <h1>Hello ${data.name}</h1>
+ <h1>Howdy ${data.name}</h1>
  </div>
  <div class="profile-menu">
  <a href="/updateProfile.html">Update Profile</a>

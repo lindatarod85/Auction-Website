@@ -33,6 +33,14 @@ align-items: center;
     width: 150px;
     text-align: center;
     padding: 10px;
+    font-style: normal;
+}
+
+.profile-menu a:hover{
+    text-decoration: none !important;
+    background-color:#EFE891;
+    color: black !important;
+    transition: 0.3s;
 }
 
 .profile-menu div{
@@ -69,4 +77,12 @@ align-items: center;
 
 .view-more-container{
     margin: 0 0 40px 0;
+}
+
+.my-listings p span, .my-bids p span{
+    color: #F12D2D;
+}
+
+.my-listings a:hover, .my-bids a:hover{
+    text-decoration: none !important;
 }
