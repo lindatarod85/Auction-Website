@@ -1,26 +1,24 @@
 const myBidsContainer = document.querySelector(".my-bids");
 const viewMore = document.querySelector(".view-more-bids");
 
+export function displayMyBids(data) {
+  const bids = data;
+  viewMore.style.display = "none";
 
-export function displayMyBids(data){
-    const bids = data;
-    viewMore.style.display = "none";
+  if (bids.length === 0) {
+    return (myBidsContainer.innerHTML += `<div class="no-bids">You haven't made any bids yet.</div>`);
+  }
 
-    if(bids.length === 0){
-      return myBidsContainer.innerHTML += `<div class="no-bids">You haven't made any bids yet.</div>`
+  for (let i = 0; i < bids.length; i++) {
+    if (i >= 4) {
+      viewMore.style.display = "inline-block";
     }
 
-    for(let i = 0; i < bids.length; i++){
+    if (i === 4) {
+      break;
+    }
 
-      if(i > 4){
-        viewMore.style.display = "block";
-      }
-
-        if (i === 4) {
-            break;
-          }
-
-        myBidsContainer.innerHTML += `
+    myBidsContainer.innerHTML += `
         <a href="listing.html?listingID=${bids[i].id}">
         <div class="card" style="width: 18rem;">
         <img src="${bids[i].listing.media[0]}" class="card-img-top listing-img" alt="product image">
@@ -33,26 +31,25 @@ export function displayMyBids(data){
         </div>
         </div>
         </div>
-        </a> `
-    }
-    }
+        </a> `;
+  }
+}
 
-    export function clickViewBids(data){
-        const bids = data;
+export function clickViewBids(data) {
+  const bids = data;
 
-        viewMore.addEventListener("click", function(){
-            for(let i = 4; i < bids.length; i++){
+  viewMore.addEventListener("click", function () {
+    for (let i = 4; i < bids.length; i++) {
+      let imageSrc = bids[i].listing.media[0];
+      if (!bids[i].listing.media.length) {
+        imageSrc = "images/image-not-available.png";
+      }
 
-                let imageSrc = bids[i].listing.media[0];
-                if(!bids[i].listing.media.length){
-                  imageSrc = "images/image-not-available.png";
-                }
+      if (myBidsContainer.children.length === bids.length) {
+        viewMore.style.display = "none";
+      }
 
-                if (myBidsContainer.children.length === bids.length) {
-                    viewMore.style.display = "none";
-                  }
-
-                myBidsContainer.innerHTML += `
+      myBidsContainer.innerHTML += `
                 <a href="listing.html?listingID=${bids[i].id}">
                 <div class="card" style="width: 18rem;">
                 <img src="${imageSrc}" class="card-img-top listing-img" alt="product image">
@@ -65,8 +62,7 @@ export function displayMyBids(data){
                 </div>
                 </div>
                 </div>
-                </a> `
-            }
-        })
+                </a> `;
     }
- 
+  });
+}

@@ -17,7 +17,9 @@ export default function createMenu() {
   }">Login</a></li>
 
   <li class="nav-item"> <a href="/register.html" class="${
-    pathname === "/register.html" || pathname === "/register.html" ? "active" : ""
+    pathname === "/register.html" || pathname === "/register.html"
+      ? "active"
+      : ""
   }">Register</a></li>
   
   `;
@@ -25,7 +27,7 @@ export default function createMenu() {
   if (token) {
     authLink = `<li class="nav-item"><a href="profile.html" class="${
       pathname === "/profile.html" ? "active" : ""
-    }">Profile</a></li>
+    }"><i class="fa-regular fa-user"></i> Profile</a></li>
 
     <li class="nav-item"> <a href="/index.html" class="${
       pathname === "/index.html" || pathname === "/index.html" ? "active" : ""

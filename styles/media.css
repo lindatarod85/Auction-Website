@@ -1,176 +1,183 @@
+@media (max-width: 1350px) {
+  .listings,
+  .my-listings,
+  .my-bids {
+    grid-template-columns: repeat(3, 1fr);
+  }
 
-@media(max-width: 1350px){
-    .listings, .my-listings, .my-bids{
-        grid-template-columns: repeat(3, 1fr);
-    }
-
-   .profile-header{
+  .profile-header {
     grid-template-columns: 1fr 1fr;
-   }
+  }
 }
 
-@media(max-width: 1050px){
-    .listings, .my-listings, .my-bids{
-        grid-template-columns: repeat(2, 1fr);
-    }
+@media (max-width: 1050px) {
+  .listings,
+  .my-listings,
+  .my-bids {
+    grid-template-columns: repeat(2, 1fr);
+  }
 
-    .profile-header{
-        grid-template-columns: 1fr;
-    }
+  .profile-header {
+    grid-template-columns: 1fr;
+  }
 
-    .profile-menu{
-        justify-content: start;
-        margin-top: 20px;
-    }
-
+  .profile-menu {
+    justify-content: start;
+    margin-top: 20px;
+  }
 }
 
-@media(max-width: 1000px){
-    .listing-details{
-        grid-template-columns: 1fr;
-    }
-    .listing-content{
-        padding-bottom: 30px;
-        padding-left: 0;
-        margin-top: 20px;
-    }
-    .listing-image .main-img{
-        width: 695px;
-        height: 400px;
-    }
+@media (max-width: 1000px) {
+  .listing-details {
+    grid-template-columns: 1fr;
+  }
+  .listing-content {
+    padding-bottom: 30px;
+    padding-left: 0;
+    margin-top: 20px;
+  }
+  .listing-image .main-img {
+    width: 695px;
+    height: 400px;
+  }
 
+  .bid-container {
+    margin-bottom: 20px;
+  }
 }
 
-@media(max-width: 767px){
-    .listing-image .main-img{
-        width: 515px;
-        height: 400px;
-    }
-
+@media (max-width: 767px) {
+  .listing-image .main-img {
+    width: 515px;
+    height: 400px;
+  }
 }
 
-@media(max-width: 800px){
-
-.media-gallery{
-
+@media (max-width: 800px) {
+  .media-gallery {
     width: 430px;
     grid-template-columns: repeat(auto-fill, minmax(100px, 3fr));
     grid-template-rows: repeat(auto, 430px);
-}
-.media-gallery img{
+  }
+  .media-gallery img {
     width: 100px;
     height: 100px;
     object-fit: cover;
-}
-.form-container, .form-container form input, .message-error{
+  }
+  .form-container,
+  .form-container form input,
+  .message-error {
     width: 400px !important;
-}
-}
-
-@media(max-width: 650px){
-    .listings, .my-listings, .my-bids{
-        grid-template-columns: 1fr;
-    } 
-
-    .profile-menu{
-        flex-direction: column;  
-    }
-
-    .profile-menu a{
-        margin: 10px;
-    }
-
-    .profile-menu div{
-        margin-top: 10px;
-    }
+  }
 }
 
-@media(max-width: 600px){
-    
-    .media-gallery{
-    
-        width: 330px;
-        grid-template-columns: repeat(auto-fill, minmax(75px, 3fr));
-        grid-template-rows: repeat(auto, 330px);
-    }
-    .media-gallery img{
-        width: 75px;
-        height: 75px;
-        object-fit: cover;
-    }
+@media (max-width: 650px) {
+  .listings,
+  .my-listings,
+  .my-bids {
+    grid-template-columns: 1fr;
+  }
+
+  .profile-menu {
+    flex-direction: column;
+  }
+
+  .profile-menu a {
+    margin: 10px;
+  }
+
+  .profile-menu div {
+    margin-top: 10px;
+  }
+
+  footer {
+    flex-direction: column;
+  }
 }
 
-@media(max-width: 575px){
-    .navbar-nav li{
-        margin-left: 0;
-    }
-
-    .navbar-toggler{
-        background-color: #f6f6f6 !important;
-        box-shadow: none !important;
-    }
-
-
-    .listing-container{
-        max-width: 400px !important;
-    }
-
-    .listing-image .main-img{
-        width: 375px;
-        height: 300px;
-    }
-    h1{
-        font-size: 32px !important;
-    }
-
-    h2{
-        font-size: 26px !important;
-    }
-
-    .form-container, .form-container form input, .message-error{
-        width: 300px !important;
-    }
-
+@media (max-width: 600px) {
+  .media-gallery {
+    width: 330px;
+    grid-template-columns: repeat(auto-fill, minmax(75px, 3fr));
+    grid-template-rows: repeat(auto, 330px);
+  }
+  .media-gallery img {
+    width: 75px;
+    height: 75px;
+    object-fit: cover;
+  }
 }
 
+@media (max-width: 575px) {
+  .navbar-nav li {
+    margin: 10px 0 0 0;
+  }
 
-@media(max-width: 400px){
-  
-    .media-gallery{
-    
-        width: 230px;
-        grid-template-columns: repeat(auto-fill, minmax(50px, 3fr));
-        grid-template-rows: repeat(auto, 230px);
-    }
-    .media-gallery img{
-        width: 50px;
-        height: 50px;
-        object-fit: cover;
-    }
+  #logout {
+    margin-top: 10px;
+  }
 
-    .listing-container{
-        max-width: 300px !important;
-    }
+  .navbar-toggler {
+    background-color: #f6f6f6 !important;
+    box-shadow: none !important;
+  }
 
-    .listing-image .main-img{
-        width: 275px;
-        height: 200px;
-    }
+  .listing-container {
+    max-width: 400px !important;
+  }
 
-    .profile{
-        flex-direction: column;
-    }
+  .listing-image .main-img {
+    width: 375px;
+    height: 300px;
+  }
+  h1 {
+    font-size: 32px !important;
+  }
 
-    .form-container, .form-container form input, .message-error{
-        width: 200px !important;
-    }
+  h2 {
+    font-size: 26px !important;
+  }
 
-    .link-container{
-        display: flex;
-        flex-direction: column;
-    }
-
-
+  .form-container,
+  .form-container form input,
+  .message-error {
+    width: 300px !important;
+  }
 }
 
+@media (max-width: 400px) {
+  .media-gallery {
+    width: 230px;
+    grid-template-columns: repeat(auto-fill, minmax(50px, 3fr));
+    grid-template-rows: repeat(auto, 230px);
+  }
+  .media-gallery img {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+  }
 
+  .listing-container {
+    max-width: 300px !important;
+  }
+
+  .listing-image .main-img {
+    width: 275px;
+    height: 200px;
+  }
+
+  .profile {
+    flex-direction: column;
+  }
+
+  .form-container,
+  .form-container form input,
+  .message-error {
+    width: 200px !important;
+  }
+
+  .link-container {
+    display: flex;
+    flex-direction: column;
+  }
+}

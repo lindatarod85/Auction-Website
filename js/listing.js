@@ -6,7 +6,6 @@ import createMenu from "./components/createMenu.js";
 import { changeMediaSrc } from "./utils/mediaGallery.js";
 import { loggedInUsers } from "./utils/loggedIn.js";
 
-
 createMenu();
 
 const detailContainer = document.querySelector(".listing-details");
@@ -18,18 +17,17 @@ const url =
 
 // Get Listing
 async function getListing() {
-
-  const {data, error} = await makeApiCall(url, options);
+  const { data, error } = await makeApiCall(url, options);
   console.log(data);
 
   //Head Title
-  document.title = "Auction Website | " + data.title;
+  document.title = "E-Buy | " + data.title;
 
-  if(error || data?.errors?.[0]?.message){
-    detailContainer.innerHTML="";
-    return displayMessage("error", "An error occurred", ".message-container"); 
- }  
- displayListing(data);
+  if (error || data?.errors?.[0]?.message) {
+    detailContainer.innerHTML = "";
+    return displayMessage("error", "An error occurred", ".message-container");
+  }
+  displayListing(data);
 }
 getListing();
 
@@ -40,7 +38,7 @@ export function displayListing(data) {
     imageSrc = "images/image-not-available.png";
   }
 
-  detailContainer.innerHTML="";
+  detailContainer.innerHTML = "";
 
   detailContainer.innerHTML += `
         <div class="listing-image">
@@ -55,7 +53,7 @@ export function displayListing(data) {
         <a class="back" href="/index.html"><i class="fa-solid fa-angles-left"></i> Back to Listings</a>
         </div>
         `;
-      
+
   changeMediaSrc(data);
-  loggedInUsers(data); 
+  loggedInUsers(data);
 }

@@ -1,88 +1,91 @@
-.profile-header{
-display: grid;
-grid-template-columns: 1fr 2fr;
-margin: 40px auto;
+.profile-header {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  margin: 40px auto;
 }
 
-.profile{
-    display: flex;
-    align-items: center;
+.profile {
+  display: flex;
+  align-items: center;
 }
 
-.profile-menu{
-display: flex;
-justify-content: end;
-align-items: center;
+.profile-menu {
+  display: flex;
+  justify-content: end;
+  align-items: center;
 }
 
-.profile-menu a{
-    margin-right: 30px;
+.profile-menu a {
+  margin-right: 30px;
 }
 
-.profile img{
-    width: 100px;
-    height: 100px;
-    object-fit: cover;
-    border-radius: 50%;
-    margin-right: 20px;
+.profile img {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 50%;
+  margin-right: 20px;
 }
 
-.profile-menu a{
-    background-color: #3F52E3;
-    color: #F6F6F6 !important;
-    width: 150px;
-    text-align: center;
-    padding: 10px;
-    font-style: normal;
+.profile-menu a {
+  background-color: #3f52e3;
+  color: #f6f6f6 !important;
+  width: 150px;
+  text-align: center;
+  padding: 10px;
+  font-style: normal;
 }
 
-.profile-menu a:hover{
-    text-decoration: none !important;
-    background-color:#EFE891;
-    color: black !important;
-    transition: 0.3s;
+.profile-menu a:hover {
+  text-decoration: none !important;
+  background-color: #efe891;
+  color: black !important;
+  transition: 0.3s;
 }
 
-.profile-menu div{
-    background-color: #EFE891;
-    color: black;
-    width: 150px;
-    text-align: center;
-    padding: 10px;
-
+.profile-menu div {
+  background-color: #efe891;
+  color: black;
+  width: 150px;
+  text-align: center;
+  padding: 10px;
 }
 
 /* My Listings & My Bids */
 
-.card-img-top{
-    height: 250px;
-    object-fit: cover;
+.card-img-top {
+  height: 250px;
+  object-fit: cover;
 }
 
-.my-listings, .my-bids{
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 30px;
-    padding: 0 !important; 
+.my-listings,
+.my-bids {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 30px;
+  padding: 0 !important;
 }
 
-.my-listings h2, .my-bids h2{
-    grid-column: -1/1;
-    margin-bottom: -15px;
+.my-listings h2,
+.my-bids h2 {
+  grid-column: -1/1;
+  margin-bottom: -15px;
 }
 
-.card{
-    border: none !important;
+.card {
+  border: none !important;
 }
 
-.view-more-container{
-    margin: 0 0 40px 0;
+.view-more-container {
+  margin: 0 0 40px 0;
 }
 
-.my-listings p span, .my-bids p span{
-    color: #F12D2D;
+.my-listings p span,
+.my-bids p span {
+  color: #f12d2d;
 }
 
-.my-listings a:hover, .my-bids a:hover{
-    text-decoration: none !important;
+.my-listings a:hover,
+.my-bids a:hover {
+  text-decoration: none !important;
 }

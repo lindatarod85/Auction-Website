@@ -19,11 +19,11 @@ export function getUsername() {
   return getFromStorage(userKey);
 }
 
-export function saveAvatar(avatar){
-  saveToStorage(avatarKey, avatar)
+export function saveAvatar(avatar) {
+  saveToStorage(avatarKey, avatar);
 }
 
-export function getAvatar(){
+export function getAvatar() {
   return getFromStorage(avatarKey);
 }
 
@@ -31,11 +31,11 @@ export function clearStorage() {
   localStorage.clear();
 }
 
-export function saveCredits(credits){
+export function saveCredits(credits) {
   saveToStorage(creditKey, credits);
 }
 
-export function getCredits(){
+export function getCredits() {
   return getFromStorage(creditKey);
 }
 

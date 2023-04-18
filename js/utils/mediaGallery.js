@@ -1,5 +1,3 @@
-//import { mediaGallery } from "../listing.js";
-
 export function changeMediaSrc(data) {
   const mediaGallery = document.querySelector(".media-gallery");
   data.media.forEach(function (media) {

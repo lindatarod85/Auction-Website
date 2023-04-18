@@ -1,37 +1,35 @@
 /* Listings */
 
-.card-img-top{
-    height: 250px;
-    object-fit: cover;
+.card-img-top {
+  height: 250px;
+  object-fit: cover;
 }
 
-.listings{
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 30px;
-    padding: 0 !important; 
+.listings {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 30px;
+  padding: 0 !important;
 }
 
-.listings p span{
-    color: #F12D2D !important;
+.listings p span {
+  color: #f12d2d !important;
 }
 
-.listings a:hover{
-    text-decoration: none !important;
+.listings a:hover {
+  text-decoration: none !important;
 }
 
-.search{
-    margin: 20px 0;
-    padding: 10px;
-    border: 1px solid #3F52E3;
+.search {
+  margin: 20px 0;
+  padding: 10px;
+  border: 1px solid black;
 }
 
-.card{
-    border: none !important;
+.card {
+  border: none !important;
 }
 
-.card-title{
-    text-transform: capitalize;
+.card-title {
+  text-transform: capitalize;
 }
-
-

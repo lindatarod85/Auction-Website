@@ -13,16 +13,16 @@ export const listingsContainer = document.querySelector(".listings");
 async function getActiveListings() {
   const url = baseURL + "api/v1/auction/listings?_active=true";
 
-  const {data, error} = await makeApiCall(url, options);
+  const { data, error } = await makeApiCall(url, options);
   console.log(data);
 
-  if(error || data?.errors?.[0]?.message){
+  if (error || data?.errors?.[0]?.message) {
     listingsContainer.innerHTML = "";
-    return displayMessage("error", "An error occurred", ".message-container"); 
- }
-    
-displayActiveListings(data);
-searchResults(data);
+    return displayMessage("error", "An error occurred", ".message-container");
+  }
+
+  displayActiveListings(data);
+  searchResults(data);
 }
 getActiveListings();
 

@@ -1,73 +1,69 @@
-.listing-details{
-    display: grid;
-    grid-template-columns: 1fr 1fr;
+.listing-details {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
 }
 
-.bid-container{
-    grid-column: 2;
+.bid-container {
+  grid-column: 2;
 }
 
-.listing-details .main-img{
-    width: 600px;
-    height: 400px;
-    object-fit: cover;
+.listing-details .main-img {
+  width: 600px;
+  height: 400px;
+  object-fit: cover;
 }
 
-.media-gallery{
-    display: grid;
-    width: 600px;
-    margin-top: 10px;
-    gap: 10px;
-    grid-template-columns: repeat(auto-fill, minmax(140px, 3fr));
-    grid-template-rows: repeat(auto, 600px);
+.media-gallery {
+  display: grid;
+  width: 600px;
+  margin-top: 10px;
+  gap: 10px;
+  grid-template-columns: repeat(auto-fill, minmax(140px, 3fr));
+  grid-template-rows: repeat(auto, 600px);
 }
 
-
-.media-gallery img{
-    width: 140px;
-    height: 140px;
-    object-fit: cover;
+.media-gallery img {
+  width: 140px;
+  height: 140px;
+  object-fit: cover;
+  cursor: pointer;
 }
 
-.listing-details h1{
-    text-transform: capitalize;
+.listing-details h1 {
+  text-transform: capitalize;
 }
 
-form button{
-background-color:#F12D2D;
-border:none;
-color: #f6f6f6;
-padding: 4px 20px;
-border: 2px solid #F12D2D;
+form button {
+  background-color: #f12d2d;
+  border: none;
+  color: #f6f6f6;
+  padding: 4px 20px;
+  border: 2px solid #f12d2d;
 }
 
-form button:hover{
-    background-color: transparent;
-    border-color: #F12D2D;
-    color: black;
-    transition: 0.3s;
+form button:hover {
+  background-color: transparent;
+  border-color: #f12d2d;
+  color: black;
+  transition: 0.3s;
 }
 
-form input{
-    width: 80px;
-    border: 1px solid black;
-    padding: 5px;
+form input {
+  width: 80px;
+  border: 1px solid black;
+  padding: 5px;
 }
 
-
-input::placeholder{
-    text-align: center;
+input::placeholder {
+  text-align: center;
 }
 
-.listing-content{
-    position: relative;
-    padding-left: 20px;
+.listing-content {
+  position: relative;
+  padding-left: 20px;
 }
 
-.back{
-    position: absolute;
-    bottom: 0;
+.back {
+  position: absolute;
+  bottom: 0;
 }
-
-
-
